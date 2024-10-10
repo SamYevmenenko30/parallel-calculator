@@ -84,6 +84,12 @@ export class CalculatorService {
             }
         }
         // the last value is always the result.
-        return values[values.length - 1];
+        const value = values[values.length - 1];
+
+        if (value === undefined) {
+            throw new Error('Expression has wrong format')
+        }
+
+        return value;
     }
 }
